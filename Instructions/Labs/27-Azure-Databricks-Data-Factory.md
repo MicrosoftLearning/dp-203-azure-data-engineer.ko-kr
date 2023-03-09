@@ -54,7 +54,7 @@ Azure Databricks 작업 영역에서 Notebook을 만들어 다양한 프로그�
 2. **databricks*xxxxxxx***의 **개요** 페이지에서 **작업 영역 시작** 단추를 사용하여 새 브라우저 탭에서 Azure Databricks 작업 영역을 엽니다. 메시지가 표시되면 로그인합니다.
 3. **현재 데이터 프로젝트가 무엇인가요?** 메시지가 표시되면 **마침**을 선택하여 닫습니다. 그런 다음, Azure Databricks 작업 영역 포털을 보고 왼쪽의 사이드바에 수행할 수 있는 다양한 작업에 대한 아이콘이 포함되어 있는지 확인합니다. 사이드바가 확장되어 작업 범주의 이름을 표시합니다.
 4. 사이드바를 확장하고 **작업 영역** 탭을 선택합니다. 그런 다음, **사용자** 폴더를 선택하고 **&#8962; *your_user_name*** 폴더의 **&#9662;** 메뉴에서 **가져오기**를 선택합니다.
-5. **Notebook 가져오기** 대화 상자에서 **URL**을 선택하고 `https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/raw/master/Allfiles/labs/27/Process-Data.dbc`에서 Notebook을 가져옵니다.
+5. **Notebook 가져오기** 대화 상자에서 **URL**을 선택하고 `https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/raw/master/Allfiles/labs/27/Process-Data.ipynb`에서 Notebook을 가져옵니다.
 6. **&#8962; 홈**을 선택한 다음, 방금 가져온 **데이터 처리** Notebook을 엽니다.
 
     **참고**: 팁이 표시되면 **확인** 단추를 사용하여 닫습니다. 이는 작업 영역 인터페이스를 처음 탐색할 때 표시될 수 있는 향후 팁에 적용됩니다.
