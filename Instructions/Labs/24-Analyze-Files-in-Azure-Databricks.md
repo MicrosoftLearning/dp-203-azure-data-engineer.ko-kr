@@ -77,8 +77,8 @@ Azure Databricks는 Apache Spark 클러스터를 사용하여 여러 노드에�
 많은 Spark 환경에서와 마찬가지로 Databricks는 Notebook을 사용하여 데이터를 탐색하는 데 사용할 수 있는 메모와 대화형 코드 셀을 결합하도록 지원합니다.
 
 1. 왼쪽의 사이드바를 확장하고 **작업 영역** 탭을 선택합니다. 그런 다음, **사용자** 폴더를 선택하고 **&#8962; *your_user_name*** 폴더의 **&#9662;** 메뉴에서 **가져오기**를 선택합니다.
-2. **Notebook 가져오기** 대화 상자에서 **URL**을 선택하고 `https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/raw/master/Allfiles/labs/24/Databricks-Spark.ipynb`에서 Notebook을 가져옵니다.
-3. **&#8962; 홈**을 선택한 다음, 방금 가져온 **Databricks Spark** Notebook을 엽니다.
+2. **Notebook 가져오기** 대화 상자에서 **URL**을 선택하고 `https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/raw/master/Allfiles/labs/24/Databricks-Spark.dbc`에서 Notebook을 가져옵니다.
+3. **&#8962; 홈**을 선택한 다음, 방금 가져온 **Spark를 사용하여 파일 기반 데이터 분석** Notebook을 엽니다.
 4. Notebook이 ***사용자 이름*의 클러스터**에 연결되어 있는지 확인하고 포함된 지침을 따릅니다. 파일의 데이터를 탐색하기 위해 포함된 셀을 실행합니다.
 
 ## Azure Databricks 리소스 삭제
