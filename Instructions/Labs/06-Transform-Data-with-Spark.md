@@ -63,9 +63,17 @@ lab:
 7. **파일** 컨테이너를 선택하고 **data** 및 **synapse**라는 폴더가 포함되어 있는지 확인합니다. synapse 폴더는 Azure Synapse에서 사용되며 **data** 폴더에는 쿼리하려는 데이터 파일이 포함되어 있습니다.
 8. **data** 폴더를 열고 3년간의 판매 데이터에 대한 .csv 파일이 포함되어 있는지 확인합니다.
 9. 파일을 마우스 오른쪽 단추로 클릭하고 **미리 보기**를 선택하여 포함된 데이터를 확인합니다. 파일에 머리글 행이 포함되어 있으므로 열 머리글을 표시하는 옵션을 선택할 수 있습니다.
-10. 미리 보기를 닫습니다. 그런 다음, **개발** 페이지에서 **Notebook**을 확장하고 제공된 **Spark 변환** Notebook을 선택합니다.
-11. Notebook을 **spark*xxxxxxx*** Spark 풀에 연결합니다.
-12. Notebook에서 메모를 검토하고 코드 셀을 실행합니다.
+10. 미리 보기를 닫습니다. 그런 다음 **, 에서 Spark Transform.ipynb** 를 다운로드합니다. [https://raw.githubusercontent.com/MicrosoftLearning/dp-203-azure-data-engineer/master/Allfiles/labs/06/notebooks/Spark%20Transform.ipynb](https://raw.githubusercontent.com/MicrosoftLearning/dp-203-azure-data-engineer/master/Allfiles/labs/06/notebooks/Spark%20Transform.ipynb)
+
+    > **참고**: ***ctrl+a***를 사용한 다음 ***ctrl+c***를 사용하여 이 텍스트를 복사하고 메모장과 같은 ***ctrl+v***를 사용하여 도구에 붙여넣은 다음 파일을 사용하여 ***모든 파일***의 파일 형식으로 **Spark Transform.ipynb**로 저장하는 것이 가장 좋습니다.
+
+11. 그런 다음 **개발** 페이지에서 **Notebooks를 확장하여** + 가져오기 옵션을 클릭합니다.
+
+    ![Spark Notebook 가져오기](./image/../images/spark-notebook-import.png)
+        
+12. 방금 다운로드하여 **Spark Transfrom.ipynb**으로 저장한 파일을 선택합니다.
+13. Notebook을 **spark*xxxxxxx*** Spark 풀에 연결합니다.
+14. Notebook에서 메모를 검토하고 코드 셀을 실행합니다.
 
     > **참고**: Spark 풀을 시작해야 하므로 첫 번째 코드 셀을 실행하는 데 몇 분 정도 걸립니다. 후속 셀은 더 빠르게 실행됩니다.
 

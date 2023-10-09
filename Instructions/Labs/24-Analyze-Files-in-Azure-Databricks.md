@@ -43,7 +43,7 @@ Azure Databricks는 인기 있는 오픈 소스 Databricks 플랫폼의 Microsof
 
 6. 메시지가 표시되면 사용할 구독을 선택합니다(여러 Azure 구독에 액세스할 수 있는 경우에만 발생).
 
-7. 스크립트가 완료될 때까지 기다리세요. 일반적으로 약 5분이 걸리지만 경우에 따라 더 오래 걸릴 수 있습니다. 기다리는 동안 Azure Databricks 설명서의 [Databricks 데이터 과학 및 엔지니어링이란?](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks-ws) 문서를 검토합니다.
+7. 스크립트가 완료될 때까지 기다리세요. 일반적으로 약 5분이 걸리지만 경우에 따라 더 오래 걸릴 수 있습니다. 기다리는 동안 [Azure Databricks 설명서의 Azure Databricks에 대한 예비 데이터 분석](https://learn.microsoft.com/azure/databricks/exploratory-data-analysis/) 문서를 검토합니다.
 
 ## 클러스터 생성
 
@@ -54,17 +54,17 @@ Azure Databricks는 Apache Spark 클러스터를 사용하여 여러 노드에�
 1. Azure Portal에서 실행한 스크립트에서 만든 **dp203-*xxxxxxx*** 리소스 그룹을 찾습니다.
 2. **databricks*xxxxxxx*** Azure Databricks 서비스 리소스를 선택합니다.
 3. **databricks*xxxxxxx***의 **개요** 페이지에서 **작업 영역 시작** 단추를 사용하여 새 브라우저 탭에서 Azure Databricks 작업 영역을 엽니다. 메시지가 표시되면 로그인합니다.
-4. **현재 데이터 프로젝트가 무엇인가요?** 메시지가 표시되면 **마침**을 선택하여 닫습니다. 그런 다음, Azure Databricks 작업 영역 포털을 보고 왼쪽의 사이드바에 수행할 수 있는 다양한 작업에 대한 아이콘이 포함되어 있는지 확인합니다. 사이드바가 확장되어 작업 범주의 이름을 표시합니다.
-5. **(+) 새로 만들기** 작업을 선택한 다음, **클러스터**를 선택합니다.
+4. **현재 데이터 프로젝트가 무엇인가요?** 메시지가 표시되면 **마침**을 선택하여 닫습니다. 그런 다음, Azure Databricks 작업 영역 포털을 보고 왼쪽의 사이드바에 수행할 수 있는 다양한 작업에 대한 아이콘이 포함되어 있는지 확인합니다.
 
-    **참고**: 팁이 표시되면 **확인** 단추를 사용하여 닫습니다. 이는 작업 영역 인터페이스를 처음 탐색할 때 표시될 수 있는 향후 팁에 적용됩니다.
+    >**팁**: Databricks 작업 영역 포털을 사용하면 다양한 팁과 알림이 표시될 수 있습니다. 이를 해제하고 제공된 지침에 따라 이 연습의 작업을 완료합니다.
 
-6. **새 클러스터** 페이지에서 다음 설정을 사용하여 새 클러스터를 만듭니다.
+1. **(+) 새로 만들기** 작업을 선택한 다음, **클러스터**를 선택합니다.
+1. **새 클러스터** 페이지에서 다음 설정을 사용하여 새 클러스터를 만듭니다.
     - **클러스터 이름**: *사용자 이름*의 클러스터(기본 클러스터 이름)
     - **클러스터 모드**: 단일 노드
-    - **액세스 모드**(*메시지가 표시되는 경우*): 단일 사용자
-    - **Databricks 런타임 버전**: 10.4 LTS(Scala 2.12, Spark 3.2.1)
-    - **Photon 가속 사용**: 선택 취소됨
+    - **액세스 모드**: 단일 사용자(*사용자 계정이 선택된* 경우)
+    - **Databricks 런타임 버전**: 12.2 LTS(Scala 2.12, Spark 3.2.2)
+    - **Photon 가속 사용**: 선택됨
     - **노드 형식**: Standard_DS3_v2
     - *30***분 동안 비활성 상태**이면 **종료**
 
@@ -76,10 +76,9 @@ Azure Databricks는 Apache Spark 클러스터를 사용하여 여러 노드에�
 
 많은 Spark 환경에서와 마찬가지로 Databricks는 Notebook을 사용하여 데이터를 탐색하는 데 사용할 수 있는 메모와 대화형 코드 셀을 결합하도록 지원합니다.
 
-1. 왼쪽의 사이드바를 확장하고 **작업 영역** 탭을 선택합니다. 그런 다음, **사용자** 폴더를 선택하고 **&#8962; *your_user_name*** 폴더의 **&#9662;** 메뉴에서 **가져오기**를 선택합니다.
-2. **Notebook 가져오기** 대화 상자에서 **URL**을 선택하고 `https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/raw/master/Allfiles/labs/24/Databricks-Spark.dbc`에서 Notebook을 가져옵니다.
-3. **&#8962; 홈**을 선택한 다음, 방금 가져온 **Spark를 사용하여 파일 기반 데이터 분석** Notebook을 엽니다.
-4. Notebook이 ***사용자 이름*의 클러스터**에 연결되어 있는지 확인하고 포함된 지침을 따릅니다. 파일의 데이터를 탐색하기 위해 포함된 셀을 실행합니다.
+1. 왼쪽의 사이드바에서 **작업 영역을** 선택합니다. 그런 다음 **&#8962; 홈 폴더를** 선택합니다.
+1. 페이지 위쪽의 사용자 이름 옆에 있는 **&#8942;** 메뉴에서 **가져오기**를 선택합니다. 그런 다음 **가져오기** 대화 상자에서 **URL** 을 선택하고 에서 Notebook을 가져옵니다. `https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/raw/master/Allfiles/labs/24/Databricks-Spark.ipynb`
+1. Notebook을 클러스터에 연결하고 포함된 지침을 따릅니다. 포함된 셀을 실행하여 파일의 데이터를 탐색합니다.
 
 ## Azure Databricks 리소스 삭제
 
