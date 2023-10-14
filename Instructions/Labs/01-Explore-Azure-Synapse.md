@@ -6,7 +6,7 @@ lab:
 
 # Azure Synapse Analytics 살펴보기
 
-Azure Synapse Analytics는 엔드 투 엔드 데이터 분석을 위한 단일 통합 데이터 분석 플랫폼을 제공합니다. 이 연습에서는 데이터를 수집하고 탐색하는 다양한 방법을 살펴봅니다. 이 연습은 Azure Synapse Analytics의 다양한 핵심 기능에 대한 개략적인 개요로 설계되었으며, 특정 기능을 자세히 살펴보기 위해 다른 연습을 사용할 수 있습니다.
+Azure Synapse Analytics는 엔드 투 엔드 데이터 분석을 위한 단일 통합 데이터 분석 플랫폼을 제공합니다. 이 연습에서는 데이터를 수집하고 탐색하는 다양한 방법을 살펴봅니다. 이 연습은 Azure Synapse Analytics의 다양한 핵심 기능에 대한 개략적인 개요로 설계되었습니다. 다른 연습에서는 특정 기능을 자세히 살펴볼 수 있습니다.
 
 이 연습을 완료하는 데 약 **60**분 정도 소요됩니다.
 
@@ -73,8 +73,8 @@ Synapse Studio는 Azure Synapse Analytics 작업 영역에서 리소스를 관�
         - **sql*xxxxxxx***: 관계형 데이터 웨어하우스 데이터베이스를 호스트하는 *전용* SQL 풀입니다.
     - **Apache Spark 풀**:
         - **spark*xxxxxxx***: 요청 시 Scala 또는 Python과 같은 프로그래밍 언어를 사용하여 데이터 레이크에서 데이터를 탐색하거나 처리할 수 있습니다.
-    - **Data Explorer 풀**:
-        - **adx*xxxxxxx***: KQL(Kusto 쿼리 언어)을 사용하여 데이터를 분석하는 데 사용할 수 있는 Data Explorer 풀입니다.
+<!---    - **Data Explorer pools**:
+        - **adx*xxxxxxx***: A Data Explorer pool that you can use to analyze data by using Kusto Query Language (KQL). --->
 
 ## 파이프라인을 사용하여 데이터 수집
 
@@ -86,7 +86,7 @@ Azure Synapse Analytics로 수행할 수 있는 대표적인 핵심 작업은 �
 2. 데이터 복사 도구의 **속성** 단계에서 **기본 제공 복사 작업**과 **지금 한 번 실행**이 선택되어 있는지 확인하고 **다음 >** 을 클릭합니다.
 3. **원본** 단계의 **데이터 세트** 하위 단계에서 다음 설정을 선택합니다.
     - **데이터 유형**: 모두
-    - **연결**: *새 연결을 생성하고 나타나는 **연결된 서비스** 창의 **파일** 탭에서 **HTTP**를 선택합니다. 그리고 나서 다음 설정을 사용해 데이터 파일에 연결합니다. *
+    - **연결**: *새 연결을 만들고 표시되는 **연결된 서비스** 창의 **일반 프로토콜** 탭에서 **HTTP**를 선택합니다. 그런 다음, 다음 설정을 사용하여 데이터 파일에 대한 연결을 계속하고 만듭니*다.
         - **이름**: Products
         - **설명**: HTTP를 통한 제품 목록
         - **통합 런타임을 통해 연결**: AutoResolveIntegrationRuntime
@@ -137,7 +137,7 @@ Azure Synapse Analytics로 수행할 수 있는 대표적인 핵심 작업은 �
 
 ### 수집된 데이터 보기
 
-1. **데이터** 페이지에서 **연결됨** 탭을 선택하고 Synapse 작업 영역에 대한 **files** 파일 스토리지가 나올 때까지 **제품 파일** 계층 구조를 확장합니다. 그런 다음, 파일 스토리지를 선택하여 다음처럼 **products.csv**라는 파일이 포함된 **product_data**라는 폴더가 이 위치에 복사되었는지 확인합니다.
+1. **데이터** 페이지에서 **연결된** 탭을 선택하고 Synapse 작업 영역에 대한 **파일 파일** 스토리지가 표시될 때까지 **synapse*xxxxxxx* (기본) datalake** 컨테이너 계층 구조를 확장합니다. 그런 다음, 파일 스토리지를 선택하여 다음처럼 **products.csv**라는 파일이 포함된 **product_data**라는 폴더가 이 위치에 복사되었는지 확인합니다.
 
     ![Synapse 작업 영역의 파일 스토리지가 있는 Azure Data Lake Storage 계층 구조가 확장된 Synapse Studio를 보여 주는 이미지](./images/product_files.png)
 
@@ -341,49 +341,68 @@ SQL는 구조화된 데이터 세트를 쿼리하는 데 자주 사용하는 언
 
 10. **관리** 페이지에서 **sql*xxxxxxx*** 전용 SQL 풀 행을 선택하고 &#10074;&#10074; 아이콘을 사용하여 일시 중지합니다.
 
-## Data Explorer 풀을 사용하여 데이터 탐색
+<!--- ## Explore data with a Data Explorer pool
 
-Azure Synapse Data Explorer는 KQL(Kusto 쿼리 언어)을 사용하여 데이터를 저장하고 쿼리하는 데 사용할 수 있는 런타임을 제공합니다. Kusto는 로그 파일 또는 IoT 디바이스의 실시간 데이터와 같은 시계열 구성 요소를 포함하는 데이터에 최적화되어 있습니다.
+Azure Synapse Data Explorer provides a runtime that you can use to store and query data by using Kusto Query Language (KQL). Kusto is optimized for data that includes a time series component, such as realtime data from log files or IoT devices.
 
-### Data Explorer 데이터베이스 만들기 및 테이블에 데이터 수집
+### Create a Data Explorer database and ingest data into a table
 
-1. Synapse Studio의 **관리** 페이지에 있는 **Data Explorer 풀** 섹션에서 **adx*xxxxxxx*** 풀 행을 선택한 다음, **&#9655;** 아이콘을 사용하여 다시 시작합니다.
-2. 풀이 시작될 때까지 기다립니다. 다소 시간이 걸릴 수 있습니다. **&#8635; 새로 고침** 단추를 사용하여 상태를 주기적으로 확인합니다. 준비되면 상태가 **온라인**으로 표시됩니다.
-3. Data Explorer 풀이 시작되면 **데이터** 페이지를 봅니다. 그리고 **작업 영역** 탭에서 **Data Explorer 데이터베이스**를 확장하고 **adx*xxxxxxx***가 나열되었는지 확인합니다(필요한 경우 페이지 왼쪽 위에 있는 **&#8635;** 아이콘을 사용하여 보기를 새로 고침).
-4. **데이터** 창에서 **&#65291;** 아이콘을 사용하여 **adx*xxxxxxx*** 풀에 **sales-data**라는 새 **Data Explorer 데이터베이스**를 만듭니다.
-5. Synapse Studio에서 데이터베이스가 만들어질 때까지 기다립니다(알림이 표시됨).
-6. **개발** 페이지로 전환하고 **KQL 스크립트** 목록에서 **ingest-data**를 선택합니다. 스크립트가 열리면 다음 두 개의 문이 포함됩니다.
-    - **sales**라는 테이블을 만드는 `.create table` 문.
-    - HTTP 원본에서 테이블에 데이터를 로드하는 `.ingest into table` 문.
-7. **ingest-data** 창의 **연결 대상** 목록에서 **adx*xxxxxxx*** 풀을 선택하고 **데이터베이스** 목록에서 **sales-data**를 선택합니다.
-8. 스크립트에서 `.create table` 문을 강조 표시한 다음, 도구 모음에서 **&#9655; 실행** 단추를 사용하여 선택한 코드를 실행하여 **sales**라는 테이블을 만듭니다.
-9. 테이블을 만든 후 `.ingest into table` 문을 강조 표시하고 **&#9655; 실행** 단추를 사용하여 실행하고 테이블에 데이터를 수집합니다.
+1. In Synapse Studio, on the **Manage** page, in the **Data Explorer pools** section, select the **adx*xxxxxxx*** pool row and then use its **&#9655;** icon to resume it.
+2. Wait for the pool to start. It can take some time. Use the **&#8635; Refresh** button to check its status periodically. The status will show as **online** when it is ready.
+3. When the Data Explorer pool has started, view the **Data** page; and on the **Workspace** tab, expand **Data Explorer Databases** and verify that **adx*xxxxxxx*** is listed (use **&#8635;** icon at the top-left of the page to refresh the view if necessary)
+4. In the **Data** pane, use the **&#65291;** icon to create a new **Data Explorer database** in the **adx*xxxxxxx*** pool with the name **sales-data**.
+5. In Synapse Studio, wait for the database to be created (a notification will be displayed).
+6. Switch to the **Develop** page, and in the **+** menu, add a KQL script. Then, when the script pane opens, in the **Connect to** list, select your **adx*xxxxxxx*** pool, and in the **Database** list, select **sales-data**.
+7. In the new script, add the following code:
 
-> **참고**: 이 예제에서는 파일에서 매우 적은 양의 일괄 처리 데이터를 가져왔는데, 이 연습의 용도로는 괜찮습니다. 실제로는 Data Explorer를 사용하여 Azure Event Hubs와 같은 스트리밍 원본의 실시간 데이터를 포함하는 훨씬 더 많은 양의 데이터를 분석할 수 있습니다.
+    ```kusto
+    .create table sales (
+        SalesOrderNumber: string,
+        SalesOrderLineItem: int,
+        OrderDate: datetime,
+        CustomerName: string,
+        EmailAddress: string,
+        Item: string,
+        Quantity: int,
+        UnitPrice: real,
+        TaxAmount: real)
+    ```
 
-### Kusto 쿼리 언어를 사용하여 테이블 쿼리
+8. On the toolbar, use the **&#9655; Run** button to run the selected code, which creates a table named **sales** in the **sales-data** database you created previously.
+9. After the code has run successfully, replace it with the following code, which loads data into the table:
 
-1. **데이터** 페이지로 다시 전환하고 **sales-data** 데이터베이스의 **...** 메뉴에서 **새로 고침**을 선택합니다.
-2. **sales-data** 데이터베이스의 **Tables** 폴더를 확장합니다. 그런 다음, **sales** 테이블의 **...** 메뉴에서 **새 KQL 스크립트** > **1,000개 행 사용**을 선택합니다.
-3. 생성된 쿼리 및 해당 결과를 검토합니다. 쿼리에는 다음 코드가 포함되어야 합니다.
+    ```kusto
+    .ingest into table sales 'https://raw.githubusercontent.com/microsoftlearning/dp-203-azure-data-engineer/master/Allfiles/labs/01/files/sales.csv' 
+    with (ignoreFirstRecord = true)
+    ```
+
+10. Run the new code to ingest the data.
+
+> **Note**: In this example, you imported a very small amount of batch data from a file, which is fine for the purposes of this exercise. In reality, you can use Data Explorer to analyze much larger volumes of data; including realtime data from a streaming source such as Azure Event Hubs.
+
+### Use Kusto query language to query the table
+
+1. Switch back to the **Data** page and in the **...** menu for the **sales-data** database, select **Refresh**.
+2. Expand the **sales-data** database's **Tables** folder. Then in the **...** menu for the **sales** table, select **New KQL script** > **Take 1000 rows**.
+3. Review the generated query and its results. The query should contain the following code:
 
     ```kusto
     sales
     | take 1000
     ```
 
-    쿼리 결과에는 처음 1,000개의 데이터 행이 포함되어야 합니다.
+    The results of the query contain the first 1000 rows of data.
 
-4. 쿼리를 다음과 같이 수정합니다.
+4. Modify the query as follows:
 
     ```kusto
     sales
     | where Item == 'Road-250 Black, 48'
     ```
 
-5. **&#9655; 실행** 단추를 사용하여 쿼리를 실행합니다. 그런 다음, *Road-250 Black, 48* 제품에 대한 판매 주문 행만 포함해야 하는 결과를 검토합니다.
+5. Use the **&#9655; Run** button to run the query. Then review the results, which should contain only the rows for sales orders for the *Road-250 Black, 48* product.
 
-6. 쿼리를 다음과 같이 수정합니다.
+6. Modify the query as follows:
 
     ```kusto
     sales
@@ -391,9 +410,9 @@ Azure Synapse Data Explorer는 KQL(Kusto 쿼리 언어)을 사용하여 데이�
     | where datetime_part('year', OrderDate) > 2020
     ```
 
-7. 쿼리를 실행하고 결과를 검토합니다. 이 결과에는 2020년 이후에 이루어진 *Road-250 Black, 48*에 대한 판매 주문만 포함되어야 합니다.
+7. Run the query and review the results, which should contain only sales orders for *Road-250 Black, 48* made after 2020.
 
-8. 쿼리를 다음과 같이 수정합니다.
+8. Modify the query as follows:
 
     ```kusto
     sales
@@ -402,13 +421,13 @@ Azure Synapse Data Explorer는 KQL(Kusto 쿼리 언어)을 사용하여 데이�
     | sort by Item asc
     ```
 
-9. 쿼리를 실행하고 결과를 검토합니다. 이 결과에는 제품 이름의 오름차순으로 2020년 1월 1일부터 12월 31일까지 각 제품의 총 순 수익이 포함됩니다.
+9. Run the query and review the results, which should contain the total net revenue for each product between January 1st and December 31st 2020 in ascending order of product name.
 
-10. 아직 표시되지 않으면 도구 모음의 오른쪽 끝에 있는 **속성** 단추( **&#128463;<sub>*</sub>** 와 유사함)를 선택하여 **속성** 페이지를 표시합니다. 그런 다음, **속성** 창에서 쿼리 이름을 **판매 데이터 탐색**으로 변경하고 도구 모음의 **게시** 단추를 사용하여 저장합니다.
+10. If it is not already visible, show the **Properties** page by selecting the **Properties** button (which looks similar to **&#128463;<sub>*</sub>**) on the right end of the toolbar. Then in the **Properties** pane, change the query name to **Explore sales data** and use the **Publish** button on the toolbar to save it.
 
-11. 쿼리 창을 닫은 다음, **개발** 페이지를 확인하여 KQL 스크립트가 저장되었는지 확인합니다.
+11. Close the query pane, and then view the **Develop** page to verify that the KQL script has been saved.
 
-12. **관리** 페이지에서 **adx*xxxxxxx*** Data Explorer 풀 행을 선택하고 &#10074;&#10074; 아이콘을 사용하여 일시 중지합니다.
+12. On the **Manage** page, select the **adx*xxxxxxx*** Data Explorer pool row and use its &#10074;&#10074; icon to pause it. --->
 
 ## Azure 리소스 삭제
 
