@@ -46,7 +46,7 @@ Azure Synapse Analytics 작업 영역은 데이터 및 데이터 처리 런타�
 6. 메시지가 표시되면 사용할 구독을 선택합니다(여러 Azure 구독에 액세스할 수 있는 경우에만 발생).
 7. 메시지가 표시되면 Azure Synapse SQL 풀에 설정할 적절한 암호를 입력합니다.
 
-    > **참고**: 이 암호를 기억하세요!
+    > **참고**: 이 암호를 기억하세요. 또한 암호에는 로그인 이름의 전부 또는 일부를 포함할 수 없습니다.
 
 8. 스크립트가 완료될 때까지 기다리세요. 일반적으로 약 20분이 걸리지만 경우에 따라 더 오래 걸릴 수 있습니다. 기다리는 동안 Azure Synapse Analytics 설명서에서 [Azure Synapse Analytics란?](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is) 문서를 검토합니다.
 
