@@ -43,7 +43,7 @@ Delta Lake는 데이터 레이크 위에 Spark에 대한 트랜잭션 데이터 
 
 6. 메시지가 표시되면 사용할 구독을 선택합니다(여러 Azure 구독에 액세스할 수 있는 경우에만 발생).
 
-7. 스크립트가 완료될 때까지 기다리세요. 일반적으로 약 5분이 걸리지만 경우에 따라 더 오래 걸릴 수 있습니다. 기다리는 동안 Azure Databricks 설명서의 [Delta Technologies 소개](https://learn.microsoft.com/azure/databricks/introduction/delta-comparison) 문서를 검토합니다.
+7. 스크립트가 완료될 때까지 기다리세요. 일반적으로 약 5분이 걸리지만 경우에 따라 더 오래 걸릴 수 있습니다. 기다리는 동안 Azure Databricks 설명서의 [Delta Technologies 소개](https://learn.microsoft.com/azure/databricks/introduction/delta-comparison) 문서를 검토하세요.
 
 ## 클러스터 생성
 
@@ -62,7 +62,7 @@ Azure Databricks는 Apache Spark 클러스터를 사용하여 여러 노드에�
 1. **새 클러스터** 페이지에서 다음 설정을 사용하여 새 클러스터를 만듭니다.
     - **클러스터 이름**: *사용자 이름*의 클러스터(기본 클러스터 이름)
     - **클러스터 모드**: 단일 노드
-    - **액세스 모드**: 단일 사용자(*사용자 계정이 선택된* 경우)
+    - **액세스 모드**: 단일 사용자(*사용자 계정이 선택된 경우*)
     - **Databricks 런타임 버전**: 12.2 LTS(Scala 2.12, Spark 3.2.2)
     - **Photon 가속 사용**: 선택됨
     - **노드 형식**: Standard_DS3_v2
@@ -72,11 +72,11 @@ Azure Databricks는 Apache Spark 클러스터를 사용하여 여러 노드에�
 
 > **참고**: 클러스터를 시작하지 못하면 Azure Databricks 작업 영역이 프로비저닝된 지역에서 구독 할당량이 부족할 수 있습니다. 자세한 내용은 [CPU 코어 제한으로 클러스터 생성 방지](https://docs.microsoft.com/azure/databricks/kb/clusters/azure-core-limit)를 참조하세요. 이 경우 작업 영역을 삭제하고 다른 지역에 새 작업 영역을 만들 수 있습니다. `./setup.ps1 eastus`와 같이 설치 스크립트에 대한 매개 변수로 지역을 지정할 수 있습니다.
 
-## Notebook을 사용하여 델타 레이크 살펴보기
+## Notebook을 사용하여 델타 레이크 탐색
 
-이 연습에서는 Notebook의 코드를 사용하여 Azure Databricks의 델타 레이크를 살펴봅니다.
+이 연습에서는 Notebook의 코드를 사용하여 Azure Databricks에서 델타 레이크를 탐색합니다.
 
-1. 왼쪽의 사이드바에서 **작업 영역을** 선택합니다. 그런 다음 **&#8962; 홈 폴더를** 선택합니다.
+1. 왼쪽의 사이드바에서 **작업 영역을** 선택합니다. 그런 다음 **&#8962; Home 폴더를** 선택합니다.
 1. 페이지 위쪽의 사용자 이름 옆에 있는 **&#8942;** 메뉴에서 **가져오기**를 선택합니다. 그런 다음 **가져오기** 대화 상자에서 **URL** 을 선택하고 에서 Notebook을 가져옵니다. `https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/raw/master/Allfiles/labs/25/Delta-Lake.ipynb`
 1. Notebook을 클러스터에 연결하고 포함된 지침을 따릅니다. 포함된 셀을 실행하여 델타 레이크 기능을 탐색합니다.
 
