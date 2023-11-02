@@ -130,8 +130,8 @@ lab:
             - **계정 선택 방법**: Azure 구독에서
             - **Azure 구독**: Azure 구독 선택
             - **서버 이름**: synapse*xxxxxxx*(Synapse 작업 영역)
-            - **데이터베이스 이름**: synapse*xxxxxxx*
-            - **SQL 풀**: synapse*xxxxxxx*
+            - **데이터베이스 이름**: sql*xxxxxxx*
+            - **SQL 풀**: sql*xxxxxxx*
             **인증 유형**: 시스템 할당 관리 ID
         - **테이블 이름**: dbo.DimProduct
         - **스키마 가져오기**: 연결/저장소에서
