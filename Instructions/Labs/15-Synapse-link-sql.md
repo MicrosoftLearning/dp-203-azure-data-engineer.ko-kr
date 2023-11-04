@@ -56,7 +56,7 @@ Azure SQL Database에 Azure Synapse Link를 설정하려면 먼저 필요한 구
 
     > **참고**: Azure SQL 서버 리소스 **sqldb*xxxxxxxx***) 및 Azure Synapse Analytics 전용 SQL 풀(** sql*xxxxxxxx***)을 혼합하지 않도록 주의하세요.
 
-2. Azure SQL Database 리소스 페이지의 왼쪽 창에 있는 **보안** 섹션(아래쪽 근처)에서 **ID**를 선택합니다. 그런 다음, **시스템 할당 관리 ID**에서 **상태** 옵션을 **켜기**로 설정합니다. 그런 다음, **&#128427; 저장** 아이콘을 사용하여 구성 변경 내용을 저장합니다.
+2. Azure SQL Server 리소스 페이지의 왼쪽 창에 있는 **보안** 섹션(아래쪽 근처)에서 **ID**를 선택합니다. 그런 다음, **시스템 할당 관리 ID**에서 **상태** 옵션을 **켜기**로 설정합니다. 그런 다음, **&#128427; 저장** 아이콘을 사용하여 구성 변경 내용을 저장합니다.
 
     ![Azure Portal의 Azure SQL 서버 ID 페이지 스크린샷](./images/sqldb-identity.png)
 
