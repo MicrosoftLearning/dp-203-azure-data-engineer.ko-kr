@@ -53,15 +53,15 @@ Azure Synapse Analytics를 사용하면 *레이크 데이터베이스*를 만드
 ## 컨테이너 권한 수정
 
 1. 배포 스크립트가 완료된 후 Azure Portal에서 만든 **dp203-*xxxxxxx*** 리소스 그룹으로 이동하여 이 리소스 그룹에 Synapse 작업 영역, 데이터 레이크에 대한 스토리지 계정, Apache Spark 풀이 포함되어 있는지 확인합니다.
-1. **datalakexxxxxxx**라는 데이터 레이크에 대한 **Storage 계정을** 선택합니다. 
+1. **datalakexxxxxxx라는 **데이터 레이크에 대한 Storage 계정을** 선택합니다.** 
 
      ![컨테이너에 대한 데이터 레이크 탐색](./images/datalakexxxxxx-storage.png)
 
-1. **datalakexxxxxx** 컨테이너 내에서 **파일 폴더**를 선택합니다.
+1. **datalakexxxxxx** 컨테이너 내에서 파일 폴더를 **선택합니다.**
 
-    ![데이터 레이크 컨테이너 내에서 파일 폴더 선택](./images/dp203-Container.png)
+    ![데이터 레이크 컨테이너 내의 파일 폴더 선택](./images/dp203-Container.png)
 
-1. **파일 폴더** 내에서 **인증 방법:** 액세스 키로 나열됩니다 ***(Azure AD 사용자 계정으로 전환)***. 이를 클릭하여 Azure AD 사용자 계정으로 변경합니다.
+1. **파일 폴더** 내에서 인증 방법을** 확인**합니다. 액세스 키로 나열됩니다(Azure AD 사용자 계정으로 전환)***. Azure AD 사용자 계정으로 ***변경하려면 이 옵션을 클릭합니다.
 
     ![Azure AD 사용자 계정으로 변경](./images/dp203-switch-to-aad-user.png)
 ## 레이크 데이터베이스 만들기
