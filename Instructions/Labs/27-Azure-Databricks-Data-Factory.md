@@ -18,8 +18,6 @@ Azure Databricks의 Notebook을 사용하여 데이터 파일 처리 및 테이�
 
 이 연습에서는 스크립트를 사용하여 Azure 구독에서 새 Azure Databricks 작업 영역 및 Azure Data Factory 리소스를 프로비저닝합니다.
 
-> **팁**: 표준* 또는 *평가판* Azure Databricks 작업 영역<u>과</u> Azure Data Factory v2 리소스가 이미 *있는 경우 이 절차를 건너뛸 수 있습니다.
-
 1. 웹 브라우저의 `https://portal.azure.com`에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 페이지 위쪽의 검색 창 오른쪽에 있는 **[\>_]** 단추를 사용하여 Azure Portal에서 새 Cloud Shell을 만들고 ***PowerShell*** 환경을 선택하고 메시지가 표시되면 스토리지를 만듭니다. Cloud Shell은 다음과 같이 Azure Portal 아래쪽 창에 명령줄 인터페이스를 제공합니다.
 
@@ -52,13 +50,13 @@ Azure Databricks의 Notebook을 사용하여 데이터 파일 처리 및 테이�
 
 Azure Databricks 작업 영역에서 Notebook을 만들어 다양한 프로그래밍 언어로 작성된 코드를 실행할 수 있습니다. 이 연습에서는 일부 Python 코드가 포함된 기존 Notebook을 가져옵니다.
 
-1. Azure Portal에서 스크립트에서 만든 dp203-*xxxxxxx *** 리소스 그룹(또는 기존 Azure Databricks 작업 영역이 포함된 리소스 그룹)으로 이동합니다**.
-1. Azure Databricks Service 리소스(설치 스크립트를 사용하여 만든 경우 databricks*xxxxxxx ***라는 이름**)를 선택합니다.
-1. **작업 영역에 대한 개요** 페이지에서 작업 영역** 시작 단추를 사용하여 **새 브라우저 탭에서 Azure Databricks 작업 영역을 엽니다. 메시지가 표시되면 로그인합니다.
+1. Azure Portal에서 실행한 스크립트에서 만든 **dp203-*xxxxxxx*** 리소스 그룹을 찾습니다.
+2. **databricks*xxxxxxx*** Azure Databricks 서비스 리소스를 선택합니다.
+3. **databricks*xxxxxxx***의 **개요** 페이지에서 **작업 영역 시작** 단추를 사용하여 새 브라우저 탭에서 Azure Databricks 작업 영역을 엽니다. 메시지가 표시되면 로그인합니다.
+4. **현재 데이터 프로젝트가 무엇인가요?** 메시지가 표시되면 **마침**을 선택하여 닫습니다. 그런 다음, Azure Databricks 작업 영역 포털을 보고 왼쪽의 사이드바에 수행할 수 있는 다양한 작업에 대한 아이콘이 포함되어 있는지 확인합니다.
 
-    > **팁**: Databricks 작업 영역 포털을 사용하면 다양한 팁과 알림이 표시될 수 있습니다. 이를 해제하고 제공된 지침에 따라 이 연습의 작업을 완료합니다.
+    >**팁**: Databricks 작업 영역 포털을 사용하면 다양한 팁과 알림이 표시될 수 있습니다. 이를 해제하고 제공된 지침에 따라 이 연습의 작업을 완료합니다.
 
-1. Azure Databricks 작업 영역 포털을 보고 왼쪽의 사이드바에 수행할 수 있는 다양한 작업에 대한 아이콘이 포함되어 있습니다.
 1. 왼쪽의 사이드바에서 작업 영역을** 선택합니다**. 그런 다음, **&#8962; 홈** 폴더입니다.
 1. 페이지 위쪽의 사용자 이름 옆에 있는 **&#8942;** 메뉴에서 가져오기**를 선택합니다**. 그런 다음 가져오기** 대화 상자에서 **URL**을 선택하고 **다음에서 Notebook을 가져옵니다.`https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/raw/master/Allfiles/labs/27/Process-Data.ipynb`
 1. Notebook의 콘텐츠를 검토합니다. 여기에는 다음과 같은 몇 가지 Python 코드 셀이 포함됩니다.
@@ -97,7 +95,7 @@ Azure Data Factory 파이프라인에서 Azure Databricks를 사용하려면 Azu
     - **Databrick 작업 영역 URL**: *Databricks 작업 영역 URL로 자동으로 설정*
     - **인증 유형**: 액세스 토큰
     - **액세스 토큰**: *액세스 토큰 붙여넣기*
-    - **클러스터 버전**: 13.3 LTS(Spark 3.4.1, Scala 2.12)
+    - **클러스터 버전**: 12.2 LTS(Scala 2.12, Spark 3.2.2)
     - **클러스터 노드 형식**: Standard_DS3_v2
     - **Python 버전**: 3
     - **작업자 옵션**: 수정됨
