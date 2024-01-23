@@ -62,15 +62,16 @@ Notebook을 사용하여 데이터 변환 프로세스를 자동화하기 전에
 6. 파일 컨테이너를 선택하고 여기에 변환하려는 데이터 파일이 포함된 **데이터**라는 폴더가 포함되어 있는지 확인합니다.
 7. **data**** 폴더를 열고 포함된 CSV 파일을 봅니다. 파일을 마우스 오른쪽 단추로 클릭하고 **미리 보기**를 선택하여 데이터의 샘플을 확인합니다. 완료되면 미리 보기를 닫습니다.
 8. Synapse Studio의 **개발** 페이지에서 **Notebooks**를 확장하고 **Spark 변환** Notebook을 엽니다.
+
+    > **참고**: 실행 스크립트 중에 Notebook이 업로드되지 않은 경우 GitHub [Allfiles/labs/11/Notebooks](https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/11/notebooks) Spark Transform.ipynb 파일에서 다운로드하여 Synapse에 업로드해야 합니다.
+
 9. Notebook에 포함된 코드를 검토하고 다음을 확인합니다.
     - 변수를 설정하여 고유한 폴더 이름을 정의합니다.
     - **/data** 폴더에서 CSV 판매 주문 데이터를 로드합니다.
     - 고객 이름을 여러 필드로 분할하여 데이터를 변환합니다.
     - 변환된 데이터를 고유하게 명명된 폴더에 Parquet 형식으로 저장합니다.
 10. Notebook 툴바에서 Notebook을 **spark*xxxxxxx*** Spark 풀에 연결한 다음 **&#9655; 모두 실행** 단추를 사용하여 노트북의 모든 코드 셀을 실행합니다.
-
-    > **참고**: 실행 스크립트 중에 Notebook이 업로드되지 않은 경우 GitHub [Allfiles/labs/11/Notebooks](https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/11/notebooks) Spark Transform.ipynb 파일에서 다운로드하여 Synapse에 업로드해야 합니다.
-    
+  
     코드 셀을 실행하기 전에 Spark 세션을 시작하는 데 몇 분 정도 걸릴 수 있습니다.
 
 11. 모든 Notebook 셀이 실행된 후 변환된 데이터가 저장된 폴더의 이름을 기록해 둡니다.
