@@ -63,9 +63,10 @@ lab:
 7. **파일** 컨테이너를 선택하고 **data** 및 **synapse**라는 폴더가 포함되어 있는지 확인합니다. synapse 폴더는 Azure Synapse에서 사용되며 **data** 폴더에는 쿼리하려는 데이터 파일이 포함되어 있습니다.
 8. **data** 폴더를 열고 3년간의 판매 데이터에 대한 .csv 파일이 포함되어 있는지 확인합니다.
 9. 파일을 마우스 오른쪽 단추로 클릭하고 **미리 보기**를 선택하여 포함된 데이터를 확인합니다. 파일에 머리글 행이 포함되어 있으므로 열 머리글을 표시하는 옵션을 선택할 수 있습니다.
-10. 미리 보기를 닫습니다. 그런 다음, 에서 Spark Transform.ipynb**를 **다운로드합니다.[https://raw.githubusercontent.com/MicrosoftLearning/dp-203-azure-data-engineer/master/Allfiles/labs/06/notebooks/Spark%20Transform.ipynb](https://raw.githubusercontent.com/MicrosoftLearning/dp-203-azure-data-engineer/master/Allfiles/labs/06/notebooks/Spark%20Transform.ipynb)
+10. 미리 보기를 닫습니다. 그런 다음 Allfiles/labs/06/Notebooks에서 [Spark Transform.ipynb**를 다운로드**합니다.](https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/06/notebooks)
 
-    > **참고**: Ctrl+a***를 사용한 다음 ctrl+c***를 사용하여 ***이 텍스트를 복사한 다음***, 메모장과 같은 Ctrl+v***를 사용하여 ***도구에 붙여넣은 다음 파일을 사용하여 모든 파일***의 ***파일 형식으로 Spark Transform.ipynb**로 **저장하는 것이 가장 좋습니다.
+    > **참고**: Ctrl+a***를 사용한 다음 ctrl+c***를 사용하여 ***이 텍스트를 복사한 다음***, 메모장과 같은 Ctrl+v***를 사용하여 ***도구에 붙여넣은 다음 파일을 사용하여 모든 파일***의 ***파일 형식으로 Spark Transform.ipynb**로 **저장하는 것이 가장 좋습니다. 파일을 클릭한 다음 줄임표를 선택한 다음 다운로드하여 저장한 위치를 기억하여 파일을 다운로드할 수도 있습니다.
+    ![GitHub에서 Spark Notebook 다운로드](./images/select-download-notebook.png)
 
 11. **그런 다음 개발** 페이지에서 전자 필기장을 확장**하여** + 가져오기 옵션을 클릭합니다.
 
