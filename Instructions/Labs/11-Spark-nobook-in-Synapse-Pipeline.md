@@ -61,10 +61,21 @@ Notebook을 사용하여 데이터 변환 프로세스를 자동화하기 전에
 5. 스토리지 계정을 확장하고 **파일(기본)** 이라는 파일 시스템 컨테이너가 포함되어 있는지 확인합니다.
 6. 파일 컨테이너를 선택하고 여기에 변환하려는 데이터 파일이 포함된 **데이터**라는 폴더가 포함되어 있는지 확인합니다.
 7. **data**** 폴더를 열고 포함된 CSV 파일을 봅니다. 파일을 마우스 오른쪽 단추로 클릭하고 **미리 보기**를 선택하여 데이터의 샘플을 확인합니다. 완료되면 미리 보기를 닫습니다.
-8. Synapse Studio의 **개발** 페이지에서 **Notebooks**를 확장하고 **Spark 변환** Notebook을 엽니다.
+8. 파일을 마우스 오른쪽 단추로 클릭하고 **미리 보기**를 선택하여 포함된 데이터를 확인합니다. 파일에 머리글 행이 포함되어 있으므로 열 머리글을 표시하는 옵션을 선택할 수 있습니다.
+9. 미리 보기를 닫습니다. 그런 다음 Allfiles/labs/11/Notebooks에서 Spark Transform.ipynb**[를 다운로드**합니다.](https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/11/notebooks)
 
-    > **참고**: 실행 스크립트 중에 Notebook이 업로드되지 않은 경우 GitHub [Allfiles/labs/11/Notebooks](https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/11/notebooks) Spark Transform.ipynb 파일에서 다운로드하여 Synapse에 업로드해야 합니다.
+    > **참고**: Ctrl+a***를 사용한 다음 ctrl+c***를 사용하여 ***이 텍스트를 복사한 다음***, 메모장과 같은 Ctrl+v***를 사용하여 ***도구에 붙여넣은 다음 파일을 사용하여 모든 파일***의 ***파일 형식으로 Spark Transform.ipynb**로 **저장하는 것이 가장 좋습니다. GitHub 내에서 파일을 선택한 다음 줄임표를 선택한 다음 다운로드를 선택하여 기억할 수 있는 위치에 저장하는 옵션도 있습니다. 
+    ![GitHub에서 Notebook 파일 다운로드](./images/select-download-notebook.png)
 
+10 그런 다음 **개발** 페이지에서 전자 필기장을** 확장**하여 + 가져오기 옵션을 클릭합니다.
+
+    ![Spark Notebook import](./image/../images/spark-notebook-import.png)
+        
+12. 방금 다운로드하여 Spark Transfrom.ipynb**으로 **저장한 파일을 선택합니다.
+13. Notebook을 **spark*xxxxxxx*** Spark 풀에 연결합니다.
+14. Notebook에서 메모를 검토하고 코드 셀을 실행합니다.
+
+    > **참고**: Spark 풀을 시작해야 하므로 첫 번째 코드 셀을 실행하는 데 몇 분 정도 걸립니다. 후속 셀은 더 빠르게 실행됩니다.
 9. Notebook에 포함된 코드를 검토하고 다음을 확인합니다.
     - 변수를 설정하여 고유한 폴더 이름을 정의합니다.
     - **/data** 폴더에서 CSV 판매 주문 데이터를 로드합니다.
@@ -99,8 +110,9 @@ Notebook을 사용하여 데이터 변환 프로세스를 자동화하기 전에
 
     ![Notebook 작업이 포함된 파이프라인의 스크린샷](images/notebook-pipeline.png)
 
-4. Notebook 작업의 **일반** 탭에서 이름을 **Spark 변환 실행**으로 변경합니다.
-5. Notebook 작업의 **설정** 탭에서 다음 속성을 설정합니다.
+4. 
+5. Notebook 작업의 **일반** 탭에서 이름을 **Spark 변환 실행**으로 변경합니다.
+6. Notebook 작업의 **설정** 탭에서 다음 속성을 설정합니다.
     - **Notebook**: **Spark 변환** Notebook을 선택합니다.
     - **기본 매개 변수**: 이 섹션을 확장하고 다음 설정을 사용하여 매개 변수를 정의합니다.
         - **이름**: folderName
