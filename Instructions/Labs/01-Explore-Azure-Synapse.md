@@ -73,8 +73,6 @@ Synapse Studio는 Azure Synapse Analytics 작업 영역에서 리소스를 관�
         - **sql*xxxxxxx***: 관계형 데이터 웨어하우스 데이터베이스를 호스트하는 *전용* SQL 풀입니다.
     - **Apache Spark 풀**:
         - **spark*xxxxxxx***: 요청 시 Scala 또는 Python과 같은 프로그래밍 언어를 사용하여 데이터 레이크에서 데이터를 탐색하거나 처리할 수 있습니다.
-<!---    - **Data Explorer pools**:
-        - **adx*xxxxxxx***: A Data Explorer pool that you can use to analyze data by using Kusto Query Language (KQL). --->
 
 ## 파이프라인을 사용하여 데이터 수집
 
