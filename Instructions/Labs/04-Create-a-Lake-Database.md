@@ -25,7 +25,7 @@ Azure Synapse Analytics를 사용하면 *레이크 데이터베이스*를 만드
 
     ![Cloud Shell 창이 있는 Azure Portal](./images/cloud-shell.png)
 
-    > **참고**: 이전에 *Bash* 환경을 사용하는 클라우드 셸을 만들었다면 클라우드 셸 창의 왼쪽 위에 있는 드롭다운 메뉴를 사용하여 ***PowerShell***로 변경합니다.
+    > **참고**: 이전에 *Bash* 환경을 사용하는 Cloud Shell을 만든 경우 Cloud Shell 창 왼쪽 상단에 있는 드롭다운 메뉴를 사용하여 이를 ***PowerShell***로 변경합니다.
 
 3. 창 맨 위에 있는 구분 기호 막대를 끌거나 창 오른쪽 위에 있는 **&#8212;** , **&#9723;** 및 **X** 아이콘을 사용하여 Cloud Shell 크기를 조정하여 창을 최소화, 최대화하고 닫을 수 있습니다. Azure Cloud Shell 사용에 관한 자세한 내용은 [Azure Cloud Shell 설명서](https://docs.microsoft.com/azure/cloud-shell/overview)를 참조하세요.
 
@@ -50,18 +50,18 @@ Azure Synapse Analytics를 사용하면 *레이크 데이터베이스*를 만드
 
 8. 스크립트가 완료될 때까지 기다리세요. 일반적으로 약 10분이 걸리지만 경우에 따라 더 오래 걸릴 수 있습니다. 기다리는 동안 Azure Synapse Analytics 설명서에서 [레이크 데이터베이스](https://docs.microsoft.com/azure/synapse-analytics/database-designer/concepts-lake-database) 및 [레이크 데이터베이스 템플릿](https://docs.microsoft.com/azure/synapse-analytics/database-designer/concepts-database-templates) 문서를 검토합니다.
 
-## 컨테이너 권한 수정
+## 컨테이너 사용 권한 수정
 
 1. 배포 스크립트가 완료된 후 Azure Portal에서 만든 **dp203-*xxxxxxx*** 리소스 그룹으로 이동하여 이 리소스 그룹에 Synapse 작업 영역, 데이터 레이크에 대한 스토리지 계정, Apache Spark 풀이 포함되어 있는지 확인합니다.
-1. **datalakexxxxxxx라는 **데이터 레이크에 대한 Storage 계정을** 선택합니다.** 
+1. 이름이 **datalakexxxxxxx**인 데이터 레이크에 대한 **스토리지 계정** 선택 
 
      ![컨테이너에 대한 데이터 레이크 탐색](./images/datalakexxxxxx-storage.png)
 
-1. **datalakexxxxxx** 컨테이너 내에서 파일 폴더를 **선택합니다.**
+1. **datalakexxxxxx** 컨테이너 내에서 **파일 폴더** 선택
 
     ![데이터 레이크 컨테이너 내의 파일 폴더 선택](./images/dp203-Container.png)
 
-1. **파일 폴더** 내에서 인증 방법을** 확인**합니다. 액세스 키로 나열됩니다(Azure AD 사용자 계정으로 전환)***. Azure AD 사용자 계정으로 ***변경하려면 이 옵션을 클릭합니다.
+1. **파일 폴더** 내에서 **인증 방법:** 이 ***액세스 키(Entra 사용자 계정으로 전환)*** 로 나열되는 것이 보이며, Entra 사용자 계정으로 변경하려면 이를 클릭합니다.
 
     ![Azure AD 사용자 계정으로 변경](./images/dp203-switch-to-aad-user.png)
 ## 레이크 데이터베이스 만들기
