@@ -57,7 +57,7 @@ Azure Databricks는 Apache Spark 클러스터를 사용하여 여러 노드에�
 
 > **팁**: Azure Databricks 작업 영역에 13.3 LTS 런타임 버전이 있는 클러스터가 이미 있는 경우 해당 클러스터를 사용하여 이 연습을 완료하고 이 절차를 건너뛸 수 있습니다.
 
-1. Azure Portal에서 스크립트로 만든 **dp203-*xxxxxxx*** 리소스 그룹(또는 기존 Azure Databricks 작업 영역이 포함된 리소스 그룹)으로 이동합니다.
+1. Azure Portal에서 스크립트로 만든 **dp203-*xxxxxxx*** 리소스 그룹(또는 기존 Azure Databricks 작업 영역이 포함된 리소스 그룹)으로 이동
 1. Azure Databricks Service 리소스(설치 스크립트를 사용하여 만든 경우 **databricks*xxxxxxx***라는 이름)를 선택합니다.
 1. 작업 영역의 **개요** 페이지에서 **작업 영역 시작** 단추를 사용하여 새 브라우저 탭에서 Azure Databricks 작업 영역을 엽니다. 메시지가 표시되면 로그인합니다.
 
