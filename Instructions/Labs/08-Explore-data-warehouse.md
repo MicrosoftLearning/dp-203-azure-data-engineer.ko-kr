@@ -32,14 +32,14 @@ Azure Synapse Analytics 작업 영역은 데이터 및 데이터 처리 런타�
 4. PowerShell 창에서 다음 명령을 입력하여 이 리포지토리를 복제합니다.
 
     ```
-    rm -r dp500 -f
-    git clone https://github.com/MicrosoftLearning/DP-500-Azure-Data-Analyst dp500
+    rm -r dp203 -f
+    git clone  https://github.com/MicrosoftLearning/Dp-203-azure-data-engineer dp203
     ```
 
 5. 리포지토리가 복제된 후에는 다음 명령을 입력하여 이 랩의 폴더로 변경하고 포함된 **setup.ps1** 스크립트를 실행합니다.
 
     ```
-    cd dp500/Allfiles/03
+    cd dp203/Allfiles/labs/08
     ./setup.ps1
     ```
 
