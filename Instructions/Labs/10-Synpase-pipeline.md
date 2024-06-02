@@ -127,6 +127,7 @@ lab:
             - **이름**: Data_Warehouse
             - **설명**: 전용 SQL 풀
             - **통합 런타임을 통해 연결**: AutoResolveIntegrationRuntime
+            - **버전**: 레거시
             - **계정 선택 방법**: Azure 구독에서
             - **Azure 구독**: Azure 구독 선택
             - **서버 이름**: synapse*xxxxxxx*(Synapse 작업 영역)
