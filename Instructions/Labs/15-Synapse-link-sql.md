@@ -117,6 +117,7 @@ Azure SQL 서버는 **AdventureWorksLT**라는 샘플 데이터베이스를 호�
         - **이름**: SqlAdventureWorksLT
         - **설명**: AdventureWorksLT 데이터베이스에 연결
         - **통합 런타임을 통해 연결**: AutoResolveIntegrationRuntime
+        - **버전**: 레거시
         - **연결 문자열**: 선택됨
         - **Azure 구독에서**: 선택됨
         - **Azure 구독**: *Azure 구독 선택*
