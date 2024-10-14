@@ -54,7 +54,7 @@ Azure Synapse Analytics 작업 영역은 데이터 및 데이터 처리 런타�
 
 Synapse Studio는 Azure Synapse Analytics 작업 영역에서 리소스를 관리하고 작업할 수 있는 웹 기반 포털입니다.
 
-1. 설치 스크립트 실행이 완료되면 Azure Portal에서 만든 **dp203-*xxxxxxx*** 리소스 그룹으로 이동하여 이 리소스 그룹에 Synapse 작업 영역, 데이터 레이크에 대한 스토리지 계정, Apache Spark 풀, Data Explorer 풀, 전용 SQL 풀이 포함되어 있는지 확인합니다.
+1. 설정 스크립트 실행이 완료되면 Azure Portal에서 생성한 **dp203-*xxxxxxx*** 리소스 그룹으로 이동하여 이 리소스 그룹에 Synapse 작업 영역, 데이터 레이크용 스토리지 계정, Apache Spark 풀 및 전용 SQL 풀이 포함되어 있는지 확인합니다.
 2. Synapse 작업 영역을 선택하고 **개요** 페이지의 **Synapse Studio 열기** 카드에서 **열기**를 선택하여 새 브라우저 탭에서 Synapse Studio를 엽니다. Synapse Studio는 Synapse Analytics 작업 영역에서 사용할 수 있는 웹 기반 인터페이스입니다.
 3. Synapse Studio 왼쪽에 있는 **&rsaquo;&rsaquo;** 아이콘을 사용하여 메뉴를 확장합니다. Synapse Studio에서 리소스를 관리하고 데이터 분석 작업을 수행하는 데 사용할, 다음과 같은 다양한 페이지가 표시됩니다.
 
@@ -433,7 +433,7 @@ Azure Synapse Analytics 탐색을 완료했으므로, 지금까지 만든 리소
 
 1. Synapse Studio 브라우저 탭을 닫고 Azure Portal로 돌아갑니다.
 2. Azure Portal의 **홈** 페이지에서 **리소스 그룹**을 선택합니다.
-3. (관리되는 리소스 그룹이 아닌) Synapse Analytics 작업 영역에 대한 **dp203-*xxxxxxx*** 리소스 그룹을 선택하고 Synapse 작업 영역, 스토리지 계정, SQL 풀, Data Explorer 풀, 작업 영역용 Spark 풀이 포함되어 있는지 확인합니다.
+3. (관리되는 리소스 그룹이 아닌) Synapse Analytics 작업 영역에 대한 **dp203-*xxxxxxx*** 리소스 그룹을 선택하고 Synapse 작업 영역, 스토리지 계정, SQL 풀, 작업 영역용 Spark 풀이 포함되어 있는지 확인합니다.
 4. 리소스 그룹의 **개요** 페이지에서 **리소스 그룹 삭제**를 선택합니다.
 5. **dp203-*xxxxxxx*** 리소스 그룹 이름을 입력하여 삭제 의사를 확인한 다음, **삭제**를 선택합니다.
 
