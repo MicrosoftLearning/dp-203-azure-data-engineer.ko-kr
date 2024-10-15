@@ -49,8 +49,24 @@ Microsoft Purview를 사용하면 데이터 자산 전체에서 데이터 자산
     > **참고**: 이 암호를 기억하세요!
 
 8. 스크립트가 완료될 때까지 기다리세요. 일반적으로 약 15분이 걸리지만 경우에 따라 더 오래 걸릴 수 있습니다. 기다리는 동안 Microsoft Purview 설명서의 [Microsoft Purview 거버넌스 포털에서 사용할 수 있는 항목](https://docs.microsoft.com/azure/purview/overview) 문서를 검토합니다.
+9. 스크립트가 완료되면 출력을 검토하고 *xxxxxxx* 형식의 고유한 접미사가 리소스 이름에 대해 생성되었음을 확인합니다. 예를 들어 생성된 리소스 그룹의 이름은 **dp203-xxxxxxx****입니다. 이 접미사를 적어 둡니다. 나중에 추가 리소스를 만들 때 필요합니다.
 
 > **팁**: 설치 스크립트를 실행한 후 랩을 완료하지 않기로 결정한 경우 불필요한 Azure 비용을 방지하기 위해 Azure 구독에서 만든 **dp203-*xxxxxxx*** 리소스 그룹을 삭제해야 합니다.
+
+## Azure Synapse Analytics 작업 영역으로 이동합니다.
+
+이 스크립트는 Azure Synapse Studio 웹 기반 인터페이스를 사용하여 탐색하고 관리할 수 있는 Azure Synapse Analytics 작업 영역을 만들었습니다. 작업 영역에는 불필요한 비용이 발생하지 않도록 일시 중지된 전용 SQL 풀이 포함됩니다. 곧 필요하게 되니, 지금이 다시 시작하기에 좋은 시간입니다.
+
+1. Azure Portal의 Synapse Analytics 작업 영역 페이지에서 **개요** 탭을 봅니다. 그런 다음 **Synapse Studio 열기** 타일에서 링크를 사용하여 새 브라우저 탭에서 Azure Synapse Studio를 엽니다. 메시지가 표시되면 로그인합니다.
+
+    >**팁**: 또는 새 브라우저 탭에서 https://web.azuresynapse.net 으로 직접 이동하여 Azure Synapse Studio를 열 수 있습니다.
+
+2. Synapse Studio 왼쪽에 있는 **&rsaquo;&rsaquo;** 아이콘을 사용하여 메뉴를 확장합니다. 이렇게 하면 Synapse Studio에서 여러 페이지가 표시됩니다.
+3. **관리** 페이지의 **SQL 풀** 탭에서 **sql*xxxxxxx*** 전용 SQL 풀에 대한 행을 선택하고 **&#9655;** 아이콘을 사용하여 시작합니다. 메시지가 표시되면 다시 시작하려는지 확인합니다.
+
+    ![Synapse Studio의 SQL 풀 페이지 스크린샷.](./images/resume-sql-pool.png)
+
+4. 풀을 다시 시작하는 데 몇 분 정도 걸릴 수 있습니다. **&#8635; 새로 고침** 단추를 사용하여 상태를 주기적으로 확인할 수 있습니다. 준비되면 상태가 **온라인**으로 표시됩니다. 대기하는 동안 아래 단계를 계속하여 레이크 데이터베이스를 만든 다음 **관리** 페이지로 돌아와서 전용 SQL 풀을 온라인으로 확인합니다.
 
 ## 레이크 데이터베이스 만들기
 
@@ -58,69 +74,56 @@ Microsoft Purview를 사용하면 데이터 자산 전체에서 데이터 자산
 
 레이크 데이터베이스는 Synapse SQL 서버리스 SQL 풀 및 Apache Spark에서 액세스할 수 있으므로 사용자는 스토리지를 컴퓨팅과 분리할 수 있습니다. 레이크 데이터베이스의 메타데이터를 사용하면 여러 엔진에서 통합된 환경을 제공하고 데이터 레이크에서 지원되지 않는 추가 정보(예: 관계)를 사용하기 쉬워집니다.
 
-1. 레이크 데이터베이스를 만들려면 먼저 적절한 리소스 그룹에서 synapsexxxxxxx를 연 다음 **Synapse Studio 열기**에서 ***열기*** 링크를 클릭합니다. 
-2. 다음으로 렌치 모양이 있는 도구 상자를 클릭합니다. 이 도구 상자는 Synapse Analytics 작업 영역의 관리 섹션이기도 하며 전용 풀이 실행 중인지 확인합니다. 시작하는 데 몇 분 정도 걸릴 수 있습니다.
-3. 여기에서 통 모양에 데이터 레이블이 있는 데이터베이스 기호를 클릭합니다.
-4. 데이터 패널에서 **데이터**라는 단어의 오른쪽에 있는 + 기호를 클릭하고 ***레이크 데이터베이스***를 선택합니다.
-   
-    ![첫 lakedb 데이터베이스 만들기](./images/lakedb-configure.png)
+1. Azure Synapse Studio에서 **데이터** 페이지를 보고 **작업 영역** 탭에서 **SQL 데이터베이스**를 확장하여 작업 영역의 데이터베이스를 확인합니다. 여기에는 방금 다시 시작된 **sql*xxxxxxx*** 전용 SQL 풀 데이터베이스가 포함되어야 합니다.
+2. **데이터** 창의 **+** 메뉴에서 **레이크 데이터베이스**를 선택하여 작업 영역에 새 레이크 데이터베이스를 추가합니다.
 
-> **참고**: **확인** 단추를 클릭하기 전에 읽고 이해해야 하는 **Azure Synapse 데이터베이스 템플릿 사용 약관**에 대한 메시지가 표시됩니다.
+    > **참고**: **확인** 단추를 클릭하기 전에 읽고 이해해야 하는 **Azure Synapse 데이터베이스 템플릿 사용 약관**에 대한 메시지가 표시됩니다.
 
-5. 맨 오른쪽에는 속성 창이 있습니다.
-   1. 이름 필드에 **lakedb**를 입력합니다.
-   1. **입력 폴더**에서 폴더를 선택하고 루트/파일/데이터로 이동한 다음 **확인**을 누릅니다.
+3. 새 레이크 데이터베이스의 **Properties** 창(오른쪽)에서 다음 속성을 설정합니다.
+    - **이름**: lakedb
+    - **입력 폴더**: ***root/files/data**로 이동*
 
->**참고**: **입력 폴더**를 열 때 오류가 표시될 수 있습니다. 그런 경우 루트 폴더를 두 번 클릭하고 데이터까지 이동한 후 **확인**을 클릭하면 됩니다.
+    >**팁**: **입력 폴더**를 열 때 오류가 표시될 수 있습니다. 그런 경우 루트 폴더를 두 번 클릭하고 데이터까지 이동한 후 **확인**을 클릭하면 됩니다.
 
-   1. 이 화면의 왼쪽에는 **lakedb** 이름이 있는 기둥이 있습니다. 그 아래에 있는 **+테이블**을 클릭하고 ***데이터 레이크에서***를 선택합니다.
-   1. ***외부 테이블 이름*** 아래에 **Products**라고 입력합니다.
-   1. ***연결된 서비스***에서 기본 옵션을 선택합니다.
-   1. ***입력 파일 또는 폴더*** 내에서 맨 오른쪽에 있는 파일 폴더를 클릭하고 **루트 > 파일 > 데이터 >** 로 이동하여 ***products.csv***를 선택하고 **확인**을 클릭한 다음 **계속**을 클릭합니다.
+4. 왼쪽의 **테이블** 창에 있는 **+ Table** 메뉴에서 ***데이터 레이크에서***를 선택합니다. 다음 속성을 사용하여 새 테이블을 추가합니다.
+    - ***외부 테이블 이름***: Products
+    - ***연결된 서비스***: synapse*xxxxxxx*-WorkspaceDefaultStorage(datalake*xxxxxxx*)
+    - ***입력 파일 또는 폴더***: files/data/products.csv
 
-6. **새 외부 테이블** 창에서 첫 번째 행 옵션 ***열 이름 유추***를 선택한 다음 **만들기**를 클릭합니다.
+5. **계속**을 클릭하고 **새 외부 테이블** 창에서 첫 번째 행 옵션의 ***열 이름 유추***를 선택한 다음 **만들기**를 클릭합니다.
 
-![외부 원본 설정](./images/lakedb-external-table-source.png)
-
-7. 쿼리 디자인 창의 맨 위에 있는 **게시**를 누릅니다.
-8. **데이터**에서 왼쪽의 **작업 영역** 영역에 있는지 확인하고 **레이크 데이터베이스** 섹션, **lakedb**를 확장한 다음 **Products** 테이블의 오른쪽에 ***마우스를 놓고*** ***상위 100개 행***을 선택합니다.
-
-![외부 원본에서 파생된 테이블 구조](./images/lakedb-external-table-definition.png)
-
-> **참고**: **연결 대상**이 **기본 제공**으로 나열되어 있는지 확인하고 **master** 데이터베이스를 선택된 상태로 두거나 오른쪽에 있는 새로 고침 버튼을 클릭하고 **lakedb** 데이터베이스를 선택할 수 있습니다. 3부분 명명 규칙 [database].[schema].[table]을 사용하므로 둘 다 작동합니다.
+6. 레이크 데이터베이스 창의 맨 위에 있는 **Publish**를 선택하여 변경 내용을 저장합니다.
+7. **데이터** 창에서 **레이크 데이터베이스** 섹션을 펼친 후, **lakedb**를 열고 **Products** 테이블의 **...** 메뉴에서 **SQL 스크립트** > ***상위 100개 행*** 만들기를 선택합니다.
+8. **연결 대상**이 **기본 제공**으로 나열되었는지 확인하고 **데이터베이스 사용** 목록을 새로 고치고 **lakedb**를 선택합니다.
 
 ![레이크 데이터베이스의 첫 번째 외부 쿼리](./images/lakedb-first-external-query.png)
 
-9. **실행** 단추를 눌러 레이크 데이터베이스 테이블 내의 데이터를 봅니다.
+9. **실행** 단추를 사용하여 쿼리를 실행하고 **Products** 테이블 내의 데이터를 봅니다.
 
-## 계정에 Microsoft Purview 서비스 추가
+## Microsoft Purview 서비스 계정 추가 및 구성
 
 Microsoft Purview는 데이터 거버넌스, 정보 보호, 위험 관리 및 규정 준수 솔루션에 걸친 포괄적인 제품 포트폴리오입니다. 온-프레미스, 다중 클라우드, SaaS(Software as a Service) 데이터 전반에서 전체 데이터 자산을 제어, 보호, 관리하는 데 도움이 됩니다.
 
-이를 설정하려면 먼저 할당된 임의 번호에 따라 dp203-xxxxxxx라고 명명되는 기본 리소스 그룹으로 돌아가게 됩니다. **리소스 그룹** 내로 이동했다면 ***+ 만들기*** 단추를 클릭하여 새 서비스를 추가합니다.
+### Microsoft Purview 계정 프로비전
 
-1. **Microsoft Purview 서비스**를 선택한 다음 **만들기** 단추를 클릭합니다.
-2. 적절한 리소스 그룹에서 시작했으므로 만들기 프로세스 중에 이미 선택되어 있을 것입니다. 다음으로 임의로 할당된 번호를 사용하여 **Purview**에 이름을 지정합니다. 그런 다음 인스턴스에 가장 적합한 지역을 선택합니다.
+> **참고**: Purview 리소스는 단일 Azure 테넌트 내에서 제한됩니다. 사용 중인 테넌트가 Azure Purview 인스턴스의 할당량을 이미 사용한 경우 새 인스턴스를 만들 수 없습니다. 가능하면 이 연습의 나머지 부분에서 기존 Microsoft Purview 리소스를 사용할 수 있습니다.
 
-   ![Purview 만들기](./images/purview-create.png)
+1. Azure Portal이 포함된 브라우저 탭으로 다시 전환하고 **dp203-*xxxxxxx*** 리소스 그룹을 확인합니다.
+2. **+ 만들기** 단추를 사용하여 다음 설정으로 리소스 그룹에 새 **Microsoft Purview** 리소스를 추가합니다.
+    - **구독**: 해당 구독을 선택합니다.
+    - **리소스 그룹**: dp203-*xxxxxxx*
+    - **Microsoft Purview 계정 이름**: purview*xxxxxxx**(여기서 *xxxxxxx*는 고유한 접미사임)*
+    - **위치**: *사용 가능한 지역을 선택합니다*.
 
-3. **검토 및 만들기** 단추를 클릭하고 계속 진행하기 전 ***유효성 검사*** 결과를 기다립니다.
+    > **참고**: Purview 유효성 검사를 통과하려면 몇 가지 지역을 시도해야 할 수 있습니다.
 
-   ![Purview 유효성 검사](./images/validation-passed.png)
-
-4. 유효성 검사가 통과되면 **만들기** 단추를 누릅니다.
-
-> **참고**: Purview 유효성 검사를 통과하려면 몇 가지 지역을 시도해야 할 수 있습니다.
-
-## Microsoft Purview에서 Azure Synapse Analytics 데이터 자산 카탈로그 만들기
-
-Microsoft Purview를 사용하면 Azure Synapse 작업 영역의 데이터 원본을 포함하여 데이터 자산 전체에서 데이터 자산을 카탈로그화할 수 있습니다. 방금 배포한 작업 영역에는 데이터 레이크(Azure Data Lake Storage Gen2 계정), 서버리스 데이터베이스 및 전용 SQL 풀의 데이터 웨어하우스가 포함됩니다.
+3. 리소스가 만들어질 때까지 기다린 다음 **dp203-*xxxxxxx*** 리소스 그룹으로 돌아가서 나열되었는지 확인합니다(페이지를 새로 고쳐야 할 수도 있음).
 
 ### Microsoft Purview에 대한 역할 기반 액세스 구성
 
 Microsoft Purview는 관리 ID를 사용하도록 구성됩니다. 데이터 자산을 카탈로그화하려면 이 관리 ID 계정이 Azure Synapse Analytics 작업 영역 및 데이터 레이크 저장소에 대한 스토리지 계정에 액세스할 수 있어야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 설치 스크립트에서 만든 **dp203-*xxxxxxx*** 리소스 그룹을 찾아 만든 리소스를 봅니다. 이러한 위협은 다음과 같습니다.
+1. **dp203-*xxxxxxx*** 리소스 그룹에서 만든 리소스를 검토합니다. 여기에는 다음이 포함됩니다.
     - **datalake*xxxxxxx***와 유사한 이름을 가진 스토리지 계정입니다.
     - **purview*xxxxxxx***와 유사한 이름을 가진 Microsoft Purview 계정입니다.
     - **sql*xxxxxxx***와 유사한 이름을 가진 전용 SQL 풀입니다.
@@ -146,50 +149,42 @@ Microsoft Purview는 관리 ID를 사용하도록 구성됩니다. 데이터 자
 
 Azure Synapse Analytics 작업 영역에는 Microsoft Purview에서 사용하는 관리 ID가 액세스해야 하는 서버리스 및 전용 SQL 풀의 데이터베이스가 포함됩니다.
 
-1. Azure Portal의 Synapse Analytics 작업 영역 페이지에서 **개요** 탭을 봅니다. 그런 다음 **Synapse Studio 열기** 타일에서 링크를 사용하여 새 브라우저 탭에서 Azure Synapse Studio를 엽니다. 메시지가 표시되면 로그인합니다.
-
-    >**팁**: 또는 새 브라우저 탭에서 https://web.azuresynapse.net 으로 직접 이동하여 Azure Synapse Studio를 열 수 있습니다.
-
-2. Synapse Studio 왼쪽에 있는 **&rsaquo;&rsaquo;** 아이콘을 사용하여 메뉴를 확장합니다. 이렇게 하면 Synapse Studio에서 여러 페이지가 표시됩니다.
-3. **관리** 페이지의 **SQL 풀** 탭에서 **sql*xxxxxxx*** 전용 SQL 풀에 대한 행을 선택하고 **&#9655;** 아이콘을 사용하여 시작합니다. 메시지가 표시되면 다시 시작하려는지 확인합니다.
-
-    ![Synapse Studio의 SQL 풀 페이지 스크린샷.](./images/resume-sql-pool.png)
-
-4. SQL 풀이 다시 시작될 때까지 기다립니다. 몇 분 정도 걸릴 수 있습니다. **&#8635; 새로 고침** 단추를 사용하여 상태를 주기적으로 확인할 수 있습니다. 준비되면 상태가 **온라인**으로 표시됩니다.
-5. Azure Synapse Studio에서 **데이터** 페이지를 보고 **작업 영역** 탭에서 **SQL 데이터베이스**를 확장하여 작업 영역의 데이터베이스를 확인합니다. 이때 다음과 같은 정보를 검토해야 합니다.
-    - **lakedb**라는 서버리스 SQL 풀 데이터베이스입니다.
+1. Azure Synapse 스튜디오를 포함하는 브라우저 탭으로 돌아갑니다. 그런 다음 **데이터** 페이지를 보고 작업 영역의 데이터베이스를 확인합니다. 이때 다음과 같은 정보를 검토해야 합니다.
+    - **lakedb**라는 레이크 데이터베이스입니다.
     - **sql*xxxxxxx***라는 전용 SQL 풀 데이터베이스입니다.
 
-    ![두 개의 SQL 데이터베이스가 나열된 Synapse Studio의 데이터 페이지 스크린샷.](./images/sql-databases.png)
-
-6. **lakedb** 데이터베이스를 선택한 다음 **...** 메뉴에서 **새 SQL 스크립트** > **빈 스크립트**를 선택하여 새로운 **SQL 스크립트 1** 창을 엽니다. 도구 모음 오른쪽 끝에 있는 **속성** 단추( **&#128463;<sub>*</sub>** 과 유사)를 사용하여 **속성** 창을 숨기고 스크립트 창을 좀 더 쉽게 볼 수 있습니다.
+2. **lakedb** 데이터베이스를 선택한 다음 **...** 메뉴에서 **새 SQL 스크립트** > **빈 스크립트**를 선택하여 새로운 **SQL 스크립트 1** 창을 엽니다. 도구 모음 오른쪽 끝에 있는 **속성** 단추( **&#128463;<sub>*</sub>** 과 유사)를 사용하여 **속성** 창을 숨기고 스크립트 창을 좀 더 쉽게 볼 수 있습니다.
 7. **SQL 스크립트 1** 창에서 다음 SQL 코드를 입력하여 ***purviewxxxxxxx***의 모든 인스턴스를 Microsoft Purview 계정의 관리 ID 이름으로 바꿉니다.
 
     ```sql
-    CREATE LOGIN purviewxxxxxxx FROM EXTERNAL PROVIDER;
+    CREATE LOGIN [purviewxxxxxxx] FROM EXTERNAL PROVIDER;
     GO
 
-    CREATE USER purviewxxxxxxx FOR LOGIN purviewxxxxxxx;
+    CREATE USER [purviewxxxxxxx] FOR LOGIN [purviewxxxxxxx];
     GO
 
-    ALTER ROLE db_datareader ADD MEMBER purviewxxxxxxx;
+    ALTER ROLE db_datareader ADD MEMBER [purviewxxxxxxx];
     GO
     ```
 
-8. **&#9655; 실행** 단추를 사용하여 스크립트를 실행합니다. 이는 서버리스 풀에 로그인하고 Microsoft Purview에서 사용하는 관리 ID에 대한 **lakedb** 사용자에서 사용자를 만들고 **lakedb** 데이터베이스의 **db_datareader** 역할에 사용자를 추가합니다.
-9. **sql*xxxxxxx*** 전용 SQL 풀 데이터베이스에 대해 비어 있는 새 스크립트를 만들고 이를 사용하여 다음 SQL 코드를 실행합니다(***purviewxxxxxxx***를 Microsoft Purview 계정의 관리 ID 이름으로 대체). 이는 Microsoft Purview에서 사용하는 관리 ID에 대한 전용 SQL 풀에 사용자를 만들고 **sql*xxxxxxx*** 데이터베이스의 **db_datareader** 역할에 추가합니다.
+3. **&#9655; Run** 단추를 사용하여 스크립트를 실행합니다. 이는 로그인하고 Microsoft Purview에서 사용하는 관리 ID에 대한 **lakedb** 사용자에서 사용자를 만들고 **lakedb** 데이터베이스의 **db_datareader** 역할에 사용자를 추가합니다.
+4. **sql*xxxxxxx*** 전용 SQL 풀 데이터베이스에 대해 비어 있는 새 스크립트를 만들고 이를 사용하여 다음 SQL 코드를 실행합니다(***purviewxxxxxxx***를 Microsoft Purview 계정의 관리 ID 이름으로 대체). 이는 Microsoft Purview에서 사용하는 관리 ID에 대한 전용 SQL 풀에 사용자를 만들고 **sql*xxxxxxx*** 데이터베이스의 **db_datareader** 역할에 추가합니다.
 
     ```sql
-    CREATE USER purviewxxxxxxx FROM EXTERNAL PROVIDER;
+    CREATE USER [purviewxxxxxxx] FROM EXTERNAL PROVIDER;
     GO
 
-    EXEC sp_addrolemember 'db_datareader', purviewxxxxxxx;
+    EXEC sp_addrolemember 'db_datareader', [purviewxxxxxxx];
     GO
     ```
+
+## Microsoft Purview를 사용하여 데이터 리소스 검사
+
+이제 Microsoft Purview에 필요한 액세스를 구성하여 Azure Synapse Analytics 작업 영역에서 사용하는 데이터 원본을 스캔할 수 있으므로 Microsoft Purview 카탈로그에 등록할 수 있습니다.
 
 ### Microsoft Purview 카탈로그에 원본 등록
 
-이제 Microsoft Purview에 필요한 액세스를 구성하여 Azure Synapse Analytics 작업 영역에서 사용하는 데이터 원본을 스캔할 수 있으므로 Microsoft Purview 카탈로그에 등록할 수 있습니다.
+Microsoft Purview를 사용하면 Azure Synapse 작업 영역의 데이터 원본을 포함하여 데이터 자산 전체에서 데이터 자산을 카탈로그화할 수 있습니다. 방금 배포한 작업 영역에는 데이터 레이크(Azure Data Lake Storage Gen2 계정), 레이크 데이터베이스 및 전용 SQL 풀의 데이터 웨어하우스가 포함됩니다.
 
 1. Azure Portal이 포함된 브라우저 탭으로 다시 전환하고 **dp203-*xxxxxxx*** 리소스 그룹에 대한 페이지를 봅니다.
 2. **purview*xxxxxxx*** Microsoft Purview 계정을 열고 해당 **개요** 페이지에서 링크를 사용하여 새 브라우저 탭에서 **Microsoft Purview 거버넌스 포털**을 엽니다. 메시지가 표시되면 로그인합니다.
@@ -197,7 +192,7 @@ Azure Synapse Analytics 작업 영역에는 Microsoft Purview에서 사용하는
     >**팁**: 또는 새 브라우저 탭에서 https://web.purview.azure.com 으로 직접 이동할 수 있습니다.
 
 3. Azure Purview 거버넌스 포털의 왼쪽에서 **&rsaquo;&rsaquo;** 아이콘을 사용하여 메뉴를 확장합니다. 이렇게 하면 포털 내의 다른 페이지가 표시됩니다.
-4. **데이터 맵** 페이지의 **원본** 하위 페이지에서 **등록**을 선택합니다.
+4. **데이터 맵** 페이지의 **데이터 원본** 하위 페이지에서 **등록**을 선택합니다.
 
     ![Microsoft Purview 거버넌스 포털의 데이터 맵 페이지 스크린샷](./images/purview-register.png)
 
