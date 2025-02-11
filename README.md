@@ -1,3 +1,11 @@
+#README
+
+We've turned off the ability to report issues directly on this repo and do not monitor PRs.
+
+Provide feedback here: https://aka.ms/provide-feedback
+
+Or, if you are a trainer with a microsoft.com email address, please create a ticket in AzDO.
+
 # DP-203: Azure 데이터 엔지니어
 
 이 리포지토리에는 [Microsoft Certified: Azure Data Engineer Associate](https://learn.microsoft.com/certifications/azure-data-engineer/) 인증을 지원하기 위한 Microsoft Official Courseware의 실습에 대한 지침과 자산이 포함되어 있습니다. 이 연습은 [Microsoft Learn](https://learn.microsoft.com/training)의 관련 교육 모듈을 보완하도록 설계되었으며, 이러한 연습의 <u>하위 집합</u>은 공식 [DP-203T00: Microsoft Azure의 데이터 엔지니어링](https://learn.microsoft.com/training/courses/dp-203t00) 강사 진행 교육 과정의 실습 랩으로 구성됩니다.
